@@ -10,7 +10,7 @@ module.exports = {
 	entry: ["./src/index.tsx"],
 	output: {
 		path: path.resolve(__dirname, "dist"),
-		publicPath: "/",
+		publicPath: "./",
 		filename: `js/[name].${isDev ? "" : "[chunkhash]."}js`
 	},
 	resolve: {
@@ -33,6 +33,10 @@ module.exports = {
 		new webpack.DefinePlugin({
 			__DEV__: isDev
 		}),
-		new HTMLWebpackPlugin()
+		new HTMLWebpackPlugin({
+			title: "Hogger",
+			inject: "body",
+			template: "./src/template.html"
+		})
 	]
 };
