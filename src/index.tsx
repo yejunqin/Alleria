@@ -6,25 +6,23 @@ const render = ReactDom.render;
 
 const rootElement = document.getElementById("AppContainer");
 
-// if ( typeof __DEV__ !== undefined &&  __DEV__) {
-// 	const { AppContainer } = require("react-hot-loader");
-// 	render(
-// 		<AppContainer>
-// 			<App />
-// 		</AppContainer>,
-// 		rootElement
-// 	);
-// 	if (module.hot) {
-// 		module.hot.accept("./app", () => {
-// 			render(
-// 				<AppContainer>
-// 					<App />
-// 				</AppContainer>,
-// 				rootElement
-// 			);
-// 		});
-// 	}
-// } else {
-// 	render(<App />, rootElement);
-// }
-render(<App />, rootElement);
+if (__DEV__) {
+	const { AppContainer } = require("react-hot-loader");
+	function renderApp() {
+		return render(
+			<AppContainer>
+				<App />
+			</AppContainer>,
+			rootElement
+		);
+	}
+	renderApp();
+	if (module.hot) {
+		console.log(module.hot);
+		module.hot.accept("./app", () => {
+			renderApp();
+		});
+	}
+} else {
+	render(<App />, rootElement);
+}
