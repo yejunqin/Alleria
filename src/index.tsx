@@ -18,7 +18,6 @@ if (__DEV__) {
 	}
 	renderApp();
 	if (module.hot) {
-		console.log(module.hot);
 		module.hot.accept("./app", () => {
 			renderApp();
 		});

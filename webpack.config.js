@@ -8,7 +8,9 @@ const isDev = process.env.NODE_ENV !== "production";
 
 module.exports = {
 	mode: isDev ? "development" : "production",
-	entry: ["./src/index.tsx"],
+	entry: {
+		main: ["./src/index.tsx", ...(isDev ? ["webpack-hot-middleware/client"] : [])]
+	},
 	output: {
 		path: path.resolve(__dirname, "dist"),
 		publicPath: "/",
@@ -39,8 +41,7 @@ module.exports = {
 			title: "Hogger",
 			inject: "body",
 			template: "./src/template.html"
-		})
-		// new webpack.NamedModulesPlugin(),
-		// new webpack.HotModuleReplacementPlugin()
+		}),
+		new webpack.HotModuleReplacementPlugin()
 	]
 };
