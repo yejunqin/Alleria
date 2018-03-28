@@ -9,7 +9,14 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
 	}
 	render() {
 		return (
-			<div></div>
+			<div>
+				<ul>
+					<li>
+						<NavLink to="/">首页</NavLink>
+						<NavLink to="/about">About</NavLink>
+					</li>
+				</ul>
+			</div>
 		);
 	}
 }
