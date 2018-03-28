@@ -14,13 +14,13 @@ module.exports = {
 	output: {
 		path: path.resolve(__dirname, "dist"),
 		publicPath: "/",
-		filename: `js/[name].${isDev ? "" : "[chunkhash]."}js`
+		filename: `js/[name].${isDev ? "" : "[hash]."}js`
 	},
 	resolve: {
 		extensions: [".webpack.js", ".js", ".jsx", ".tsx", ".ts"],
 		modules: [rootPath, "node_modules"]
 	},
-	devtool: "inline-source-map",
+	devtool: isDev ? "inline-source-map" : "source-map",
 	module: {
 		rules: [
 			{
@@ -42,6 +42,8 @@ module.exports = {
 			inject: "body",
 			template: "./src/template.html"
 		}),
-		new webpack.HotModuleReplacementPlugin()
+		...isDev ? [new webpack.HotModuleReplacementPlugin()]
+		:
+		[]
 	]
 };

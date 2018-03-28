@@ -1,5 +1,6 @@
 import * as React from "react";
 import * as ReactDom from "react-dom";
+import { HashRouter } from "react-router-dom";
 import App from "./app";
 
 const render = ReactDom.render;
@@ -11,7 +12,9 @@ if (__DEV__) {
 	function renderApp() {
 		return render(
 			<AppContainer>
-				<App />
+				<HashRouter>
+					<App />
+				</HashRouter>
 			</AppContainer>,
 			rootElement
 		);
