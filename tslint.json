@@ -1,0 +1,6 @@
+{
+	"extends": "tslint-config-ezbuy",
+	"linterOptions": {
+		// "exclude": ["src/entries/*.tsx", "src/genServices/**/*.ts", "src/genAdminServices/**/*.ts"]
+	}
+}
