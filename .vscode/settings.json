@@ -1,6 +1,8 @@
 {
 	"git.ignoreLimitWarning": true,
 	"path-intellisense.mappings": {
+		"views": "${workspaceRoot}/src/views",
+		"components": "${workspaceRoot}/src/components"
     },
 	"search.exclude": {
 		"**/node_modules": true,

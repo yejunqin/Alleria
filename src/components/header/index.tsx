@@ -12,7 +12,9 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
 			<div>
 				<ul>
 					<li>
-						<NavLink to="/">首页</NavLink>
+						<NavLink to="/">Index</NavLink>
+					</li>
+					<li>
 						<NavLink to="/about">About</NavLink>
 					</li>
 				</ul>
