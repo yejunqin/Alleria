@@ -9,20 +9,24 @@ const rootElement = document.getElementById("AppContainer");
 
 if (__DEV__) {
 	const { AppContainer } = require("react-hot-loader");
-	function renderApp() {
-		return render(
-			<AppContainer>
-				<HashRouter>
-					<App />
-				</HashRouter>
-			</AppContainer>,
-			rootElement
-		);
-	}
-	renderApp();
+	render(
+		<AppContainer>
+			<HashRouter>
+				<App />
+			</HashRouter>
+		</AppContainer>,
+		rootElement
+	);
 	if (module.hot) {
 		module.hot.accept("./app", () => {
-			renderApp();
+			render(
+				<AppContainer>
+					<HashRouter>
+						<App />
+					</HashRouter>
+				</AppContainer>,
+				rootElement
+			);
 		});
 	}
 } else {

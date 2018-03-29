@@ -21,6 +21,11 @@ module.exports = {
 		modules: [rootPath, "node_modules"]
 	},
 	devtool: isDev ? "inline-source-map" : "source-map",
+	optimization: {
+		splitChunks: {
+			chunks: "all"
+		}
+	},
 	module: {
 		rules: [
 			{
@@ -42,8 +47,6 @@ module.exports = {
 			inject: "body",
 			template: "./src/template.html"
 		}),
-		...isDev ? [new webpack.HotModuleReplacementPlugin()]
-		:
-		[]
+		...(isDev ? [new webpack.HotModuleReplacementPlugin()] : [])
 	]
 };

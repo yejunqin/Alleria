@@ -12,3 +12,4 @@ export class About extends React.Component<AboutProps, AboutState> {
 		);
 	}
 }
+export default About;

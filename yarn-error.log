@@ -6138,7 +6138,7 @@ Lockfile:
 
 Trace: 
   Error: Command failed.
-  Exit code: 2
+  Exit code: 1
   Command: sh
   Arguments: -c rm -rf ./dist && cross-env NODE_ENV=production webpack
   Directory: /Users/yejunqin/self/code/Hogger
