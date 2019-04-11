@@ -14,7 +14,8 @@ module.exports = {
 	output: {
 		path: path.resolve(__dirname, "dist"),
 		publicPath: "/",
-		filename: `js/[name].${isDev ? "" : "[hash]."}js`
+		filename: `js/[name].${isDev ? "" : "[hash]."}js`,
+		chunkFilename: `js/[name].${isDev ? "" : "[hash]."}js`
 	},
 	resolve: {
 		extensions: [".webpack.js", ".js", ".jsx", ".tsx", ".ts"],
@@ -32,7 +33,9 @@ module.exports = {
 				test: /\.tsx?$/,
 				use: [
 					{
-						loader: "ts-loader"
+						loader: "ts-loader",
+						exclude: /node_modules/,
+						include: path.resolve(__dirname, "src")
 					}
 				]
 			}
